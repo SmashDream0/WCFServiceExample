@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Items>
+  <User Login="One" Password="123" UserType="Admin"/>
+  <User Login="Two" Password="1" UserType="Simple"/>
+</Items>
