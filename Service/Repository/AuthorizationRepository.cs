@@ -25,12 +25,11 @@ namespace ServiceHost.Repository
         /// <returns></returns>
         public Authorization ContainsGuid(string guid)
         {
-            Authorization result = default(Authorization);
+            Authorization result;
 
-            if (_authorizations.ContainsKey(guid))
-            { result = _authorizations[guid]; }
+            var checkResult = _authorizations.TryGetValue(guid, out result);
 
-            Log($"Проверка наличия авторизации {guid}, результат {result}");
+            Log($"Проверка наличия авторизации {guid}, результат {checkResult}");
 
             return result;
         }

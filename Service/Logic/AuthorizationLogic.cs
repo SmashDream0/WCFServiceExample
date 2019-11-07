@@ -108,7 +108,7 @@ namespace ServiceHost.Logic
 
             var authorization = _authorizationRepository.ContainsGuid(guid);
 
-            var result = authorization.Date.AddSeconds(_loginTimeOut) < DateTime.Now;
+            var result = authorization.Date.AddSeconds(_loginTimeOut) > DateTime.Now;
 
             Log($"Проверка действия авторизации {guid}. Результат {result}");
 

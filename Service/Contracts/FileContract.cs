@@ -34,7 +34,7 @@ namespace ServiceHost.Contracts
         {
             Log("Попытка получения файла " + fileName);
 
-            if (_authorizationLogic.IsAuthrorized(guid))
+            if (String.IsNullOrEmpty(guid) || !_authorizationLogic.IsAuthrorized(guid))
             { throw new Exception("Операция не допустима"); }
 
             Log(String.Concat("Чтение файла ", fileName, " с диска "));
