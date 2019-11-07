@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ServiceHost.Logic
 {
     public class ConfigurationLogic
     {
-        private static readonly Dictionary<string, object> _values = new Dictionary<string, object>();
+        private static readonly IDictionary<string, object> _values = new ConcurrentDictionary<string, object>();
 
         private static T GetValue<T>(string name, T defaultValue = default(T))
         {

@@ -1,5 +1,6 @@
 ﻿using ServiceHost.Logic;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,12 @@ namespace ServiceHost.Repository
     {
         public AuthorizationRepository()
         {
-            _authorizations = new Dictionary<String, Authorization>();
-            _usedLogins = new Dictionary<String, Int32>();
+            _authorizations = new ConcurrentDictionary<String, Authorization>();
+            _usedLogins = new ConcurrentDictionary<String, Int32>();
         }
 
-        private readonly Dictionary<String, Authorization> _authorizations;
-        private readonly Dictionary<String, Int32> _usedLogins;
+        private readonly IDictionary<String, Authorization> _authorizations;
+        private readonly IDictionary<String, Int32> _usedLogins;
 
         /// <summary>
         /// Получить данные авторизации
